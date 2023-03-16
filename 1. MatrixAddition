@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Matrix
+{
+	public static void main(String[] args)
+	{
+		int[][] a,b;
+		Scanner scn = new Scanner(System.in);
+		System.out.print("No. of Rows:");
+		int m = scn.nextInt();
+		System.out.print("No. of Columns:");
+		int n = scn.nextInt();
+		a = new int[m][n];
+		b = new int[m][n];
+		System.out.println("Enter values for Matrix1:");
+		for (int i=0; i<m; i++)
+			for (int j=0; j<n; j++)
+				a[i][j] = scn.nextInt();
+		System.out.println("Enter values for Matrix2:");
+		for (int i=0; i<m; i++)
+			for (int j=0; j<n; j++)
+				b[i][j] = scn.nextInt();
+		//Printing Result
+		System.out.println("\nSum of the two matrices is:");
+		for (int i=0; i<m; i++)
+		{			
+			for (int j=0; j<n; j++)
+			{
+				System.out.print(a[i][j]+b[i][j]+"\t");
+				
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+OUTPUT:
+
+No. of Rows:3
+No. of Columns:3
+Enter values for Matrix1:
+1 2 3
+4 5 6
+7 8 9
+Enter values for Matrix2:
+4 3 2
+8 7 6
+9 7 4
+
+Sum of the two matrices is:
+5	5	5	
+12	12	12	
+16	15	13	
