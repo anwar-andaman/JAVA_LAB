@@ -1,0 +1,86 @@
+import java.util.Scanner;
+public class Products
+{
+	public static void main(String[] args)
+		{
+			class Product  //Product Class
+			{
+				int price,pCode;
+				String pName;
+		
+				Product(int pr,int pc,String pn)
+				{
+					this.price = pr;
+					this.pCode = pc;
+					this.pName = pn;
+				}
+			}			
+
+			Product[] p = new Product[3];
+			Scanner sc = new Scanner(System.in);
+			int pr,pc;
+			String pn;
+			//Reading Product Details 			
+			for (int i=0; i<3; i++)
+			{
+				System.out.println("\n*********PRODUCT " + (i+1) + " ***********\n");
+				System.out.print("Enter Product Price: ");
+				pr = sc.nextInt();
+				System.out.print("\nEnter Product Code: ");
+				pc = sc.nextInt();
+				System.out.print("\nEnter Product Name: ");
+				pn = sc.next();
+				p[i] = new Product(pr,pc,pn);
+			}
+			int minPrice = p[0].price;
+			
+			for (Product pd : p)//Finds minimum price
+				if (minPrice>pd.price)
+					minPrice = pd.price;
+			
+			
+			for (Product pd : p)//Printing the details of Product with minimum price
+				if (minPrice==pd.price)
+				{
+					System.out.println("\n\nProduct with minimum price is:\n");
+					System.out.println("Product Name: "  + pd.pName);
+					System.out.println("Product Code: "  + pd.pCode);
+					System.out.println("Product Price: "  + pd.price);
+					System.out.println();
+					break;
+				}
+		}
+}
+
+OUTPUT:
+*********PRODUCT 1 ***********
+
+Enter Product Price: 200
+
+Enter Product Code: 101
+
+Enter Product Name: Textiles
+
+*********PRODUCT 2 ***********
+
+Enter Product Price: 1100
+
+Enter Product Code: 102
+
+Enter Product Name: LPG
+
+*********PRODUCT 3 ***********
+
+Enter Product Price: 60 
+
+Enter Product Code: 103
+
+Enter Product Name: Juice
+
+
+Product with minimum price is:
+
+Product Name: Juice
+Product Code: 103
+Product Price: 60
+
