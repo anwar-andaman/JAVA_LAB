@@ -34,3 +34,35 @@ class stringManipulation
 		System.out.println("Using valueOf() value1 + value2 is: " + String.valueOf(n) + String.valueOf(n1));
 	}
 }
+
+OUTPUT:
+************String Manipulations***************
+
+String created with new is: Anwar Rasheed
+
+Enter a string for performing String Manipulations: sdfsdafgasd
+Length of the string is: 11
+
+Enter second string: gsgdsgdfsg
+
+Result of String concatenation is: sdfsdafgasdgsgdsgdfsg
+
+Comparing String1 and String2: 12
+
+Character at position 5 in the string "sdfsdafgasd" is a
+
+Enter a substring to search: sd
+
+Substring found from position: 0
+
+Enter a substring to be replaced: sdf
+
+Enter the replacing string: ffff
+
+The modified string is: ffffsdafgasd
+
+Enter integer value1: 345
+
+Enter integer value2: 435
+Using valueOf() value1 + value2 is: 345435
+
