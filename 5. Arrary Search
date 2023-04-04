@@ -1,0 +1,169 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class searchArray{
+	static int size;
+	static int a[],found=0,pos=-1;
+	static void linearSearch(int sv,int arr[])
+	{
+		for (int i=0; i<size; i++)
+			if (arr[i]==sv)	
+			{
+				found=1;
+				pos = i;
+				return;
+			}
+	}
+
+	static void binarySearch(int sv,int arr[])
+	{
+		int first=0,last=size-1,mid;
+		
+		while (first<=last)
+		{
+			mid = (first+last)/2;			
+			if (arr[mid]==sv)
+			{
+				found=1;
+				pos = mid;
+				return;
+			}
+			if (arr[mid]<sv)
+				first = mid+1;
+			else
+				last= mid-1;
+		}
+	}
+
+static void recursiveBinarySearch(int sv,int arr[],int first,int last)
+	{
+		int mid;
+		
+			if (first<=last)
+			{			
+				mid = (first+last)/2;			
+				if (arr[mid]==sv)
+				{
+					found=1;
+					pos = mid;
+					return;
+				}
+				if (arr[mid]<sv)
+					first = mid+1;
+				else
+					last= mid-1;
+				recursiveBinarySearch(sv,arr,first,last);
+			}
+		
+	}
+
+static void displaySortedArray(int a[])
+{
+	System.out.print("Sorted Arrary is: ")	;
+	for (int i=0;i<a.length;i++)
+		System.out.print(a[i] + "  ");
+}
+
+	public static void main(String[] args)
+	{
+		int opt=0,sv;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of array elements: ");
+		size = sc.nextInt();
+		System.out.println("\nEnter the elements:");		
+		a = new int[size];		
+		for (int i=0; i<size; i++)//Reading array elements
+			a[i] = sc.nextInt();
+		
+		while(opt != 4)		
+		{
+			found = 0;
+			pos = -1;			
+			System.out.println("Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit");
+			opt = sc.nextInt();
+			switch(opt)
+			{
+				case 1:
+					System.out.println("Enter the value to be searched:");
+					sv = sc.nextInt();							
+					linearSearch(sv,a);
+					break;
+				case 2:
+					System.out.println("Enter the value to be searched:");
+					sv = sc.nextInt();						
+					Arrays.sort(a);
+					displaySortedArray(a);					
+					binarySearch(sv,a);
+					break;
+				case 3:
+					System.out.println("Enter the value to be searched:");
+					sv = sc.nextInt();
+					Arrays.sort(a);	
+					displaySortedArray(a);
+					recursiveBinarySearch(sv,a,0,size-1);
+					break;
+				default:
+					System.out.println("Please choose a valid option from the given menu\n");
+					break;
+			}
+			if (found==0)
+				System.out.println("\nCould not find the item\n");
+			else
+				System.out.println("\nItem found at array position " + pos + "\n");
+
+		}
+			
+		}
+	}
+  
+  
+  OUTPUT:
+  Enter the number of array elements: 
+5
+
+Enter the elements:
+12 43 10 8 32
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+1
+Enter the value to be searched:
+10
+
+Item found at array position 2
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+1
+Enter the value to be searched:
+67
+
+Could not find the item
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+2
+Enter the value to be searched:
+32
+Sorted Arrary is: 8  10  12  32  43  
+Item found at array position 3
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+2
+Enter the value to be searched:
+87
+Sorted Arrary is: 8  10  12  32  43  
+Could not find the item
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+3
+Enter the value to be searched:
+12
+Sorted Arrary is: 8  10  12  32  43  
+Item found at array position 2
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+3
+Enter the value to be searched:
+76
+Sorted Arrary is: 8  10  12  32  43  
+Could not find the item
+
+Choose options:  1: Linear Search  2: Simple Binary Seach  3: Recursive Binary Search 4:Exit
+4
