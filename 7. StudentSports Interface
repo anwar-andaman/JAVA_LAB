@@ -27,8 +27,9 @@ public static void main(String[] args)
 	r.displaySportsScore();
 }
 }
-
+/*
 OUTPUT:
 Student Score: 50
 
 Sport Score: 100
+*/
