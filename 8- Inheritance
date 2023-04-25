@@ -1,0 +1,117 @@
+class Publisher
+{
+        String pub_name;
+        Publisher(String pname)
+		{
+                pub_name=pname;
+ 
+        }
+        void display()
+		{
+                System.out.println("Publisher :"+pub_name);
+        }
+       
+ 
+}
+ 
+class Book extends Publisher 
+{
+        String title,author;
+        Book(String pnm,String tit,String auth)
+		{
+                super(pnm);
+                title=tit;
+                author=auth;
+               
+        }
+        void display()
+		{
+                super.display();
+                System.out.println("Title :" + title + "\nAuthor: " + author);
+        }
+ }
+ 
+class Electronics extends Book{
+        String type;
+        Electronics(String pnm,String tit,String auth,String typ){
+                super(pnm,tit,auth);
+                type=typ;
+ 
+        }
+        void display(){
+                super.display();
+                System.out.println("Type :" + type);
+        }
+ }
+ 
+class Programming  extends Book{
+       
+        String genre;
+ 
+        Programming(String pnm,String tit,String auth,String gen){
+                super(pnm,tit,auth);
+                genre=gen;
+       
+        }
+        void display(){
+                super.display();
+                System.out.println("Genre :" + genre);
+        }
+ 
+}
+ 
+ 
+class inheritance {
+        public static void main(String ar[])
+		{
+                Electronics[] e =new Electronics[2];
+                Programming[] p =new Programming[2];
+                e[0] =new Electronics("Tata McGraw Hill","Digital Fundamentals","Flyod ","Electronics");
+                e[1] =new Electronics("Tata McGraw Hill","Basic Electronics","V K Mehta","Electronics");
+                p[0] =new Programming ("JK Publishers","Let us C++","Govindrajulu","Programming");
+                p[1] =new Programming("Mithal Publications","Objection Oriented Programming with C++","Balaguruswamy","OOPS");
+				System.out.println("\nDIGITIAL ELECTRONICS BOOKS");
+       			for(int i=0;i<e.length;i++)
+       			{		
+		            System.out.println("\n********BOOK"+(i+1) + "********");
+		            e[i].display();
+        		}
+				System.out.println("\nPROGRAMMING BOOKS");
+     			for(int i=0;i<p.length;i++)
+    			 {
+       				 System.out.println("\n********BOOK"+(i+1) + "**********");
+        			 p[i].display();
+     			 }
+		}
+}
+
+/*
+OUTPUT:
+DIGITIAL ELECTRONICS BOOKS
+
+********BOOK1********
+Publisher :Tata McGraw Hill
+Title :Digital Fundamentals
+Author: Flyod 
+Type :Electronics
+
+********BOOK2********
+Publisher :Tata McGraw Hill
+Title :Basic Electronics
+Author: V K Mehta
+Type :Electronics
+
+PROGRAMMING BOOKS
+
+********BOOK1**********
+Publisher :JK Publishers
+Title :Let us C++
+Author: Govindrajulu
+Genre :Programming
+
+********BOOK2**********
+Publisher :Mithal Publications
+Title :Objection Oriented Programming with C++
+Author: Balaguruswamy
+Genre :OOPS
+*/
