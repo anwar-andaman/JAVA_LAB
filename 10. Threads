@@ -1,0 +1,79 @@
+import java.util.Scanner;
+class Multiplication extends Thread
+{
+	int m;
+	Multiplication(int i)
+	{
+		this.m = i;
+	}
+	void displayTable()
+	{
+		try
+		{		
+			for (int i=1; i<=10; i++)
+			{
+				System.out.println(m + " x " + i + " = " + m*i);
+				Thread.sleep(500);
+			}
+		}
+		catch (InterruptedException e)
+		{
+
+		}
+	}
+}
+class Prime extends Thread
+{
+	int limit;
+	
+	Prime(int i)
+	{
+		this.limit=i;
+	}
+	boolean checkPrime(int n)
+	{
+		boolean flag = true;
+		for (int j = 2; j<n/2; j++)
+			if (n%j==0)
+			{
+				flag = false;
+				break;
+			}
+		return (flag);
+	}
+	void printPrime()
+	{
+		try
+		{
+			for (int j = 2; j<=limit; j++)
+			{	
+				if (checkPrime(j))
+					System.out.println("Prime: " + j);
+				Thread.sleep(200);
+			}
+		}
+		catch (InterruptedException e)
+		{
+
+		}
+	}
+}
+class Threads
+{
+	public static void main(String[] args)
+	{		
+				
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Enter the number for generating Multiplication Table: ");
+			Multiplication mul = new Multiplication(sc.nextInt());
+			System.out.print("\nEnter the limit for generating Prime Series: ");
+			Prime p = new Prime(sc.nextInt());
+			System.out.println("\n********Multiplication Table********: ");		
+			mul.displayTable();
+			System.out.println("\n********Prime Series********: ");			
+			p.printPrime();
+	}
+		
+}
+		
+		
