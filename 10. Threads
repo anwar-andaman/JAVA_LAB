@@ -77,5 +77,36 @@ class Threads
 	}
 		
 }
+
+OUTPUT
+
+Enter the number for generating Multiplication Table: 7
+
+Enter the limit for generating Prime Series: 30
+
+********Multiplication Table********: 
+
+********Prime Series********: 
+Prime: 2
+7 x 1 = 7
+Prime: 3
+7 x 2 = 14
+Prime: 5
+7 x 3 = 21
+Prime: 7
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+Prime: 11
+7 x 7 = 49
+Prime: 13
+7 x 8 = 56
+7 x 9 = 63
+Prime: 17
+7 x 10 = 70
+Prime: 19
+Prime: 23
+Prime: 29
+
 		
 		
