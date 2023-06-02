@@ -6,7 +6,7 @@ class Multiplication extends Thread
 	{
 		this.m = i;
 	}
-	void displayTable()
+	public void run()
 	{
 		try
 		{		
@@ -33,7 +33,7 @@ class Prime extends Thread
 	boolean checkPrime(int n)
 	{
 		boolean flag = true;
-		for (int j = 2; j<n/2; j++)
+		for (int j = 2; j<=n/2; j++)
 			if (n%j==0)
 			{
 				flag = false;
@@ -41,7 +41,7 @@ class Prime extends Thread
 			}
 		return (flag);
 	}
-	void printPrime()
+	public void run()
 	{
 		try
 		{
@@ -49,7 +49,7 @@ class Prime extends Thread
 			{	
 				if (checkPrime(j))
 					System.out.println("Prime: " + j);
-				Thread.sleep(200);
+				Thread.sleep(300);
 			}
 		}
 		catch (InterruptedException e)
@@ -69,9 +69,11 @@ class Threads
 			System.out.print("\nEnter the limit for generating Prime Series: ");
 			Prime p = new Prime(sc.nextInt());
 			System.out.println("\n********Multiplication Table********: ");		
-			mul.displayTable();
+			//mul.displayTable();
+			mul.start();
 			System.out.println("\n********Prime Series********: ");			
-			p.printPrime();
+			//p.printPrime();
+			p.start();
 	}
 		
 }
