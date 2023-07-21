@@ -1,0 +1,41 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class File {
+
+    public static void main(String[] args) {
+
+        try {
+            FileWriter writer = new FileWriter("MyFile.txt",false );
+            writer.write("\nThis is written by Java Program");
+            writer.write("\nFile can be written outside Java Program also.");
+            writer.close();
+            FileReader reader = new FileReader("MyFile.txt");
+            BufferedReader br= new BufferedReader(reader);
+            String line;
+            System.out.println("File Contents:");
+            line = br.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = br.readLine();
+            }
+            reader.close();
+
+        } catch (IOException e) {
+            System.out.println("File Error Occured.");
+        }
+
+    }
+
+}
+
+/*
+OUTPUT:
+File Contents:
+
+This is written by Java Program
+File can be written outside Java Program also.
+
+*/
